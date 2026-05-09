@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Indicações — Andressa Bertoli · Lipedema</title>
+  <title>Curadoria da Nutri — Lipedema</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -19,86 +19,116 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 72px 24px 80px;
       position: relative;
+      height: 520px;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
-    .hero::before {
-      content: '';
+    .hero-img {
       position: absolute;
-      top: -80px; right: -80px;
-      width: 320px; height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,168,130,.12) 0%, transparent 70%);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
     }
-    .hero::after {
-      content: '';
+    .hero-overlay {
       position: absolute;
-      bottom: -60px; left: -60px;
-      width: 240px; height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(196,168,130,.08) 0%, transparent 70%);
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(30,20,12,.45) 0%, rgba(30,20,12,.65) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 24px;
     }
     .hero-eyebrow {
-      font-size: 11px;
-      letter-spacing: 3px;
+      font-size: 10px;
+      letter-spacing: 3.5px;
       text-transform: uppercase;
       color: var(--sand);
       font-weight: 400;
-      margin-bottom: 20px;
-      opacity: .85;
+      margin-bottom: 18px;
+      opacity: .9;
     }
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 7vw, 52px);
+      font-size: clamp(38px, 8vw, 64px);
       font-weight: 300;
-      line-height: 1.15;
+      line-height: 1.1;
       letter-spacing: -.5px;
-      margin-bottom: 16px;
+      color: white;
+      margin-bottom: 14px;
     }
     .hero h1 em { color: var(--sand); font-style: italic; }
     .hero p {
-      font-size: 15px;
-      color: rgba(255,255,255,.55);
-      max-width: 400px;
+      font-size: 14px;
+      color: rgba(255,255,255,.65);
+      max-width: 380px;
       margin: 0 auto;
-      line-height: 1.8;
+      line-height: 1.85;
       font-weight: 300;
     }
-
-    /* wave */
-    .wave { display: block; background: var(--cream); }
 
     /* ── LAYOUT ── */
     .main { max-width: 660px; margin: 0 auto; padding: 56px 20px 100px; }
 
     /* ── CATEGORY ── */
-    .category { margin-bottom: 64px; }
-    .cat-label {
+    .category { margin-bottom: 60px; }
+
+    .cat-banner {
+      position: relative;
+      height: 160px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 24px;
       display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
+      align-items: flex-end;
+      padding: 20px 24px;
     }
-    .cat-label-line { flex: 1; height: 1px; background: var(--light); }
-    .cat-label-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+    .cat-banner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .cat-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(30,20,12,.75) 0%, rgba(30,20,12,.3) 60%, transparent 100%);
+    }
+    .cat-banner-text { position: relative; z-index: 1; }
+    .cat-banner-label {
+      font-size: 10px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--sand);
       font-weight: 400;
-      white-space: nowrap;
+      margin-bottom: 4px;
+      opacity: .85;
+    }
+    .cat-banner-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: white;
+      line-height: 1.1;
+    }
+    .cat-banner-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      margin-top: 3px;
     }
 
     /* ── PRODUCT CARD ── */
     .product-card {
       background: white;
       border-radius: 16px;
-      padding: 24px 26px;
+      padding: 22px 24px;
       margin-bottom: 10px;
       border: 1px solid var(--light);
       transition: box-shadow .2s, border-color .2s;
@@ -176,9 +206,6 @@
     .btn:hover { background: var(--taupe); }
     .btn svg { flex-shrink: 0; }
 
-    /* ── DIVIDER ── */
-    hr { border: none; border-top: 1px solid var(--light); margin: 20px 0; }
-
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -190,6 +217,8 @@
     footer strong { color: var(--taupe); font-weight: 500; }
 
     @media (max-width: 500px) {
+      .hero { height: 420px; }
+      .cat-banner { height: 130px; }
       .product-footer { flex-direction: column; align-items: flex-start; }
       .btn { width: 100%; justify-content: center; }
     }
@@ -197,24 +226,29 @@
 </head>
 <body>
 
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-eyebrow">Andressa Bertoli · Nutricionista</div>
-  <h1>Produtos que indico<br/>para <em>Lipedema</em></h1>
-  <p>Uma seleção cuidadosa de itens que pesquiso e recomendo às minhas pacientes — com explicação clínica de cada escolha.</p>
+  <img class="hero-img" src="https://images.unsplash.com/photo-1621784460088-7d5175af93ac?w=1400&q=80&fit=crop&crop=center" alt=""/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Andressa Bertoli · Nutricionista</div>
+    <h1>Curadoria<br/>da <em>Nutri</em></h1>
+    <p>Produtos que pesquiso e recomendo às minhas pacientes — com explicação clínica de cada escolha.</p>
+  </div>
 </section>
-
-<svg class="wave" viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 48L80 42C160 36 320 24 480 18C640 12 800 12 960 16C1120 20 1280 28 1360 32L1440 36V0H0V48Z" fill="#2C2218"/>
-</svg>
 
 <main class="main">
 
   <!-- ── SUPLEMENTOS ── -->
   <div class="category">
-    <div class="cat-label">
-      <div class="cat-label-line"></div>
-      <div class="cat-label-text">Suplementos</div>
-      <div class="cat-label-line"></div>
+    <div class="cat-banner">
+      <img src="https://images.unsplash.com/photo-1693996047034-311ab7656691?w=900&q=80&fit=crop" alt=""/>
+      <div class="cat-banner-overlay"></div>
+      <div class="cat-banner-text">
+        <div class="cat-banner-label">01</div>
+        <div class="cat-banner-title">Suplementos</div>
+        <div class="cat-banner-sub">Suporte nutricional para o lipedema</div>
+      </div>
     </div>
 
     <div class="product-card">
@@ -310,10 +344,14 @@
 
   <!-- ── COMPRESSÃO ── -->
   <div class="category">
-    <div class="cat-label">
-      <div class="cat-label-line"></div>
-      <div class="cat-label-text">Compressão</div>
-      <div class="cat-label-line"></div>
+    <div class="cat-banner">
+      <img src="https://images.unsplash.com/photo-1567013514336-6de53c9e7e63?w=900&q=80&fit=crop&crop=top" alt=""/>
+      <div class="cat-banner-overlay"></div>
+      <div class="cat-banner-text">
+        <div class="cat-banner-label">02</div>
+        <div class="cat-banner-title">Compressão</div>
+        <div class="cat-banner-sub">Essencial para controle do edema linfático</div>
+      </div>
     </div>
 
     <div class="product-card">
@@ -364,7 +402,7 @@
       </div>
       <div class="product-footer">
         <a href="https://amzn.to/4uvcoK6" target="_blank" class="btn">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 12-2h6M15 3h6v6M10 14L21 3"/></svg>
           Ver
         </a>
       </div>
@@ -409,10 +447,14 @@
 
   <!-- ── MOVIMENTO ── -->
   <div class="category">
-    <div class="cat-label">
-      <div class="cat-label-line"></div>
-      <div class="cat-label-text">Movimento & Terapias</div>
-      <div class="cat-label-line"></div>
+    <div class="cat-banner">
+      <img src="https://images.unsplash.com/photo-1603066974209-7244d43d4360?w=900&q=80&fit=crop&crop=center" alt=""/>
+      <div class="cat-banner-overlay"></div>
+      <div class="cat-banner-text">
+        <div class="cat-banner-label">03</div>
+        <div class="cat-banner-title">Movimento & Terapias</div>
+        <div class="cat-banner-sub">Estimular o linfático e reduzir a inflamação</div>
+      </div>
     </div>
 
     <div class="product-card">
@@ -510,10 +552,14 @@
 
   <!-- ── COZINHA ── -->
   <div class="category">
-    <div class="cat-label">
-      <div class="cat-label-line"></div>
-      <div class="cat-label-text">Cozinha Funcional</div>
-      <div class="cat-label-line"></div>
+    <div class="cat-banner">
+      <img src="https://images.unsplash.com/photo-1758565810980-5d7949fb3cbf?w=900&q=80&fit=crop&crop=center" alt=""/>
+      <div class="cat-banner-overlay"></div>
+      <div class="cat-banner-text">
+        <div class="cat-banner-label">04</div>
+        <div class="cat-banner-title">Cozinha Funcional</div>
+        <div class="cat-banner-sub">Facilite o preparo de receitas anti-inflamatórias</div>
+      </div>
     </div>
 
     <div class="product-card">
