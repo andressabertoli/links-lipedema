@@ -3,483 +3,617 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Indicações da Andressa — Lipedema</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <title>Indicações — Andressa Bertoli · Lipedema</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    :root{--taupe:#8B7355;--sand:#C4A882;--dark:#3A2F24;--cream:#FAF7F2;--light:#E8DDD0;--accent:#B8956A}
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark)}
+    :root {
+      --dark: #2C2218;
+      --taupe: #8B7355;
+      --sand: #C4A882;
+      --cream: #FAF7F2;
+      --light: #EDE5D8;
+      --muted: #9E8E7A;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; }
 
-    /* HERO */
-    .hero{background:linear-gradient(160deg,var(--dark) 0%,#5C4A35 100%);color:white;text-align:center;padding:52px 24px 68px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(196,168,130,.1)}
-    .hero-badge{display:inline-block;background:rgba(196,168,130,.2);border:1px solid rgba(196,168,130,.4);color:var(--sand);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:18px}
-    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,6vw,40px);font-weight:600;line-height:1.2;margin-bottom:10px}
-    .hero h1 span{color:var(--sand)}
-    .hero p{font-size:14px;color:rgba(255,255,255,.75);max-width:440px;margin:0 auto 20px;line-height:1.7}
-    .hero-note{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 18px;font-size:12px;color:rgba(255,255,255,.65);line-height:1.6}
+    /* ── HERO ── */
+    .hero {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 72px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,168,130,.12) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,168,130,.08) 0%, transparent 70%);
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--sand);
+      font-weight: 400;
+      margin-bottom: 20px;
+      opacity: .85;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 7vw, 52px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -.5px;
+      margin-bottom: 16px;
+    }
+    .hero h1 em { color: var(--sand); font-style: italic; }
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,.55);
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-weight: 300;
+    }
 
-    svg.wave{display:block;margin-top:-2px;background:var(--cream)}
+    /* wave */
+    .wave { display: block; background: var(--cream); }
 
-    /* MAIN */
-    .main{max-width:700px;margin:0 auto;padding:40px 20px 80px}
+    /* ── LAYOUT ── */
+    .main { max-width: 660px; margin: 0 auto; padding: 56px 20px 100px; }
 
-    /* CATEGORY */
-    .category{margin-bottom:40px}
-    .cat-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--light)}
-    .cat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-    .cat-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--dark)}
-    .cat-sub{font-size:12px;color:var(--taupe);margin-top:2px}
+    /* ── CATEGORY ── */
+    .category { margin-bottom: 64px; }
+    .cat-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .cat-label-line { flex: 1; height: 1px; background: var(--light); }
+    .cat-label-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+      white-space: nowrap;
+    }
 
-    /* PRODUCT CARD */
-    .product-card{background:white;border-radius:14px;padding:18px 20px;margin-bottom:12px;border:1.5px solid var(--light);display:flex;flex-direction:column;gap:10px;box-shadow:0 2px 8px rgba(58,47,36,.04)}
-    .product-top{display:flex;align-items:flex-start;gap:12px}
-    .product-emoji{font-size:22px;flex-shrink:0;margin-top:1px}
-    .product-info{flex:1}
-    .product-name{font-weight:600;font-size:15px;color:var(--dark);margin-bottom:3px;line-height:1.3}
-    .product-why{font-size:13px;color:#6A5C50;line-height:1.65}
-    .product-why strong{color:var(--taupe)}
-    .product-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
-    .tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px}
-    .tag.green{background:#EDFAF0;color:#276738}
-    .tag.blue{background:#EEF3FF;color:#2947A3}
-    .tag.pink{background:#FFF0F5;color:#9D174D}
-    .tag.yellow{background:#FFFBEC;color:#854D0E}
-    .tag.purple{background:#F3EEFF;color:#5B21B6}
-    .btn-amazon{display:inline-flex;align-items:center;gap:6px;background:var(--dark);color:white;font-weight:600;font-size:13px;padding:9px 18px;border-radius:50px;text-decoration:none;transition:all .2s;align-self:flex-start}
-    .btn-amazon:hover{background:var(--taupe)}
-    .btn-amazon svg{flex-shrink:0}
-    .no-link{display:inline-flex;align-items:center;gap:6px;background:var(--light);color:var(--taupe);font-weight:500;font-size:12px;padding:7px 14px;border-radius:50px;text-decoration:none}
+    /* ── PRODUCT CARD ── */
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px 26px;
+      margin-bottom: 10px;
+      border: 1px solid var(--light);
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(44,34,24,.07); border-color: #D9CCBA; }
 
-    /* ANDRESSA NOTE */
-    .andressa-note{background:#FFF8F2;border:1.5px solid #F0DFC8;border-radius:12px;padding:12px 16px;margin-top:8px;display:flex;gap:10px;align-items:flex-start}
-    .andressa-note .av{font-size:18px;flex-shrink:0}
-    .andressa-note p{font-size:12px;color:#7A5C3A;line-height:1.6;font-style:italic}
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .tag {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: .3px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+    }
+    .tag.g  { background: #EDF7EF; color: #2A6B3A; border-color: #C8E8CE; }
+    .tag.b  { background: #EDF2FF; color: #2B4DB0; border-color: #C4D2F7; }
+    .tag.p  { background: #FDF0F5; color: #943060; border-color: #F2C6D9; }
+    .tag.y  { background: #FEFAED; color: #7C5B12; border-color: #EFD98A; }
+    .tag.v  { background: #F3EFFE; color: #5828B0; border-color: #D4BFFF; }
 
-    /* FOOTER */
-    footer{text-align:center;padding:28px 20px;border-top:1px solid var(--light);font-size:13px;color:#A89880}
-    footer strong{color:var(--taupe)}
-    footer a{color:var(--taupe);text-decoration:none}
+    .product-why {
+      font-size: 13.5px;
+      color: #7A6A58;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .product-why strong { color: var(--taupe); font-weight: 500; }
 
-    /* DISCLAIMER */
-    .disclaimer{background:white;border-radius:14px;padding:16px 20px;margin-bottom:32px;border:1.5px solid var(--light);font-size:12.5px;color:#7A6A5C;line-height:1.7}
-    .disclaimer strong{color:var(--dark)}
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .andressa-note {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+    .andressa-note::before { content: '✦ '; font-style: normal; color: var(--sand); }
 
-    @media(max-width:480px){.btn-amazon{width:100%;justify-content:center}}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--dark);
+      color: white;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: .3px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn:hover { background: var(--taupe); }
+    .btn svg { flex-shrink: 0; }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--light); margin: 20px 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      border-top: 1px solid var(--light);
+    }
+    footer p { font-size: 13px; color: var(--muted); line-height: 2; }
+    footer a { color: var(--taupe); text-decoration: none; }
+    footer strong { color: var(--taupe); font-weight: 500; }
+
+    @media (max-width: 500px) {
+      .product-footer { flex-direction: column; align-items: flex-start; }
+      .btn { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
 
 <section class="hero">
-  <div class="hero-badge">Indicações da Nutricionista</div>
-  <h1>Produtos que eu indico<br/>para <span>Lipedema</span> 💜</h1>
-  <p>Cada produto aqui foi selecionado com critério clínico. São itens que uso, pesquiso ou indico às minhas pacientes com lipedema.</p>
-  <div class="hero-note">
-    🛒 Links Amazon · Alguns são afiliados — o preço não muda para você,<br/>mas me ajudam a continuar produzindo conteúdo gratuito.
-  </div>
+  <div class="hero-eyebrow">Andressa Bertoli · Nutricionista</div>
+  <h1>Produtos que indico<br/>para <em>Lipedema</em></h1>
+  <p>Uma seleção cuidadosa de itens que pesquiso e recomendo às minhas pacientes — com explicação clínica de cada escolha.</p>
 </section>
 
-<svg class="wave" viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 40L60 35C120 30 240 20 360 15C480 10 600 10 720 14C840 18 960 24 1080 26C1200 28 1320 24 1380 22L1440 20V0H0V40Z" fill="#3A2F24"/>
+<svg class="wave" viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 48L80 42C160 36 320 24 480 18C640 12 800 12 960 16C1120 20 1280 28 1360 32L1440 36V0H0V48Z" fill="#2C2218"/>
 </svg>
 
 <main class="main">
 
-  <div class="disclaimer">
-    <strong>Aviso importante:</strong> Estes produtos são indicações educativas da Nutricionista Andressa Bertoli e não substituem prescrição médica individualizada. Sempre consulte sua equipe de saúde antes de iniciar qualquer suplemento ou equipamento terapêutico.
-  </div>
-
-  <!-- SUPLEMENTOS -->
+  <!-- ── SUPLEMENTOS ── -->
   <div class="category">
-    <div class="cat-header">
-      <div class="cat-icon" style="background:#EDFAF0">💊</div>
-      <div>
-        <div class="cat-title">Suplementos</div>
-        <div class="cat-sub">Suporte nutricional para o lipedema e o desmame do GLP-1</div>
+    <div class="cat-label">
+      <div class="cat-label-line"></div>
+      <div class="cat-label-text">Suplementos</div>
+      <div class="cat-label-line"></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Ômega 3 — EPA + DHA</div>
+      <div class="product-tags">
+        <span class="tag g">Anti-inflamatório</span>
+        <span class="tag p">Anti-fibrose</span>
+        <span class="tag b">Circulação linfática</span>
+      </div>
+      <div class="product-why">
+        O suplemento com <strong>maior evidência para lipedema</strong>. O EPA e o DHA inibem diretamente as citocinas IL-1β e TNF-α — responsáveis pela progressão da fibrose no tecido adiposo. Indico para todas as minhas pacientes, especialmente durante o desmame do GLP-1.
+      </div>
+      <div class="product-footer">
+        <span class="andressa-note">Prefira fórmulas com mínimo 1000mg de EPA+DHA por cápsula</span>
+        <a href="https://www.amazon.com.br/s?k=omega+3+epa+dha+2000mg" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🐟</div>
-        <div class="product-info">
-          <div class="product-name">Ômega 3 (EPA + DHA)</div>
-          <div class="product-tags">
-            <span class="tag green">Anti-inflamatório</span>
-            <span class="tag pink">Anti-fibrose</span>
-            <span class="tag blue">Circulação linfática</span>
-          </div>
-        </div>
+      <div class="product-name">Psyllium</div>
+      <div class="product-tags">
+        <span class="tag g">Fibra solúvel</span>
+        <span class="tag y">Controle glicêmico</span>
+        <span class="tag b">Drenante</span>
       </div>
-      <div class="product-why">O ômega-3 é o <strong>suplemento com maior evidência para lipedema</strong>. O EPA e o DHA inibem diretamente as citocinas inflamatórias IL-1β e TNF-α — as principais responsáveis pela progressão da fibrose no tecido adiposo. Indico para todas as minhas pacientes com lipedema, especialmente no desmame do GLP-1.</div>
-      <a href="https://www.amazon.com.br/s?k=omega+3+epa+dha+2000mg" target="_blank" class="btn-amazon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3h-17A1.5 1.5 0 002 4.5v15A1.5 1.5 0 003.5 21h17a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0020.5 3zM12 17.25l-5.25-5.25 1.06-1.06L12 15.12l8.19-8.19 1.06 1.06L12 17.25z"/></svg>
-        Buscar na Amazon
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🌾</div>
-        <div class="product-info">
-          <div class="product-name">Psyllium</div>
-          <div class="product-tags">
-            <span class="tag green">Fibra solúvel</span>
-            <span class="tag yellow">Controle glicêmico</span>
-            <span class="tag blue">Drenante</span>
-          </div>
-        </div>
+      <div class="product-why">
+        Forma um gel no intestino que <strong>retarda a absorção de açúcar</strong> — essencial no desmame do GLP-1. Reduz pico de insulina pós-refeição, melhora trânsito intestinal e tem leve efeito drenante. Tomar 10 minutos antes das refeições principais.
       </div>
-      <div class="product-why">A casca de psyllium forma um gel no intestino que <strong>retarda a absorção de açúcar</strong> — essencial no desmame do GLP-1. Também reduz o pico de insulina pós-refeição, melhora o trânsito intestinal e tem leve efeito drenante. Tomar antes das refeições principais.</div>
-      <a href="https://www.amazon.com.br/s?k=psyllium+casca" target="_blank" class="btn-amazon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-        Buscar na Amazon
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">💪</div>
-        <div class="product-info">
-          <div class="product-name">Whey Protein</div>
-          <div class="product-tags">
-            <span class="tag green">Preservação muscular</span>
-            <span class="tag yellow">GLP-1 natural</span>
-            <span class="tag blue">Saciedade</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">A proteína de soro é o <strong>maior estimulador natural de GLP-1</strong> — exatamente o hormônio que a medicação fornece artificialmente. No desmame, garantir proteína de qualidade é essencial para manter saciedade e preservar massa muscular. Prefira whey isolado ou hidrolisado.</div>
-      <a href="https://www.amazon.com.br/s?k=whey+protein+isolado" target="_blank" class="btn-amazon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-        Buscar na Amazon
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🌿</div>
-        <div class="product-info">
-          <div class="product-name">Enzima Gluten</div>
-          <div class="product-tags">
-            <span class="tag green">Anti-inflamatório</span>
-            <span class="tag purple">Digestão</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">O glúten pode ser um <strong>gatilho inflamatório silencioso</strong> para mulheres com lipedema, mesmo sem doença celíaca. A enzima digestiva de glúten permite consumir alimentos sem desencadear a resposta inflamatória. Indico especialmente em eventos sociais e saídas.</div>
-      <a href="https://amzn.to/4u022C1" target="_blank" class="btn-amazon">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-        Ver na Amazon
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🥛</div>
-        <div class="product-info">
-          <div class="product-name">Lactase Perlatte</div>
-          <div class="product-tags">
-            <span class="tag green">Anti-inflamatório</span>
-            <span class="tag purple">Digestão</span>
-            <span class="tag blue">Reduz inchaço</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">A intolerância à lactose é muito comum em mulheres com lipedema e <strong>piora a inflamação e o inchaço</strong> sem que a paciente perceba. A lactase Perlatte tomada antes de laticínios evita a fermentação intestinal, a produção de gases inflamatórios e a retenção que acompanha esse processo.</div>
-      <a href="https://www.amazon.com.br/s?k=lactase+perlatte" target="_blank" class="btn-amazon">Buscar na Amazon</a>
-    </div>
-  </div>
-
-  <!-- COMPRESSÃO -->
-  <div class="category">
-    <div class="cat-header">
-      <div class="cat-icon" style="background:#EEF3FF">🧦</div>
-      <div>
-        <div class="cat-title">Compressão</div>
-        <div class="cat-sub">Essencial para controle do edema e circulação linfática</div>
+      <div class="product-footer">
+        <a href="https://www.amazon.com.br/s?k=psyllium+casca" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🩱</div>
-        <div class="product-info">
-          <div class="product-name">Legging Emana</div>
-          <div class="product-tags">
-            <span class="tag blue">Compressão suave</span>
-            <span class="tag green">Uso diário</span>
-            <span class="tag pink">Lipedema</span>
-          </div>
-        </div>
+      <div class="product-name">Whey Protein Isolado</div>
+      <div class="product-tags">
+        <span class="tag g">Preservação muscular</span>
+        <span class="tag y">GLP-1 natural</span>
+        <span class="tag b">Saciedade</span>
       </div>
-      <div class="product-why">A legging Emana tem tecnologia de compressão suave com <strong>bioenergia de cristais de jade</strong> que estimulam a microcirculação. Ideal para uso diário — proporciona conforto, reduz a sensação de peso e dor nas pernas do lipedema sem a rigidez das meias medicinais.</div>
-      <a href="https://amzn.to/4tVWhoZ" target="_blank" class="btn-amazon">Ver na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🧦</div>
-        <div class="product-info">
-          <div class="product-name">Meia Calça Basic Sigvaris 972 AT — 20-30 mmHg (Bege M3)</div>
-          <div class="product-tags">
-            <span class="tag blue">Compressão medicinal</span>
-            <span class="tag green">20-30 mmHg</span>
-            <span class="tag pink">Lipedema</span>
-          </div>
-        </div>
+      <div class="product-why">
+        A proteína de soro é o <strong>maior estimulador natural de GLP-1</strong> — exatamente o hormônio que a medicação fornece artificialmente. No desmame, garantir proteína de qualidade mantém saciedade e preserva massa muscular. Prefira isolado ou hidrolisado.
       </div>
-      <div class="product-why">A compressão 20-30 mmHg é a <strong>faixa terapêutica indicada para lipedema</strong>. A Sigvaris é referência mundial em meias medicinais — tecido durável, graduação precisa da pressão (maior no tornozelo, menor na coxa) que favorece o retorno linfático. Modelo básico, excelente custo-benefício.</div>
-      <a href="https://amzn.to/3RfxWfj" target="_blank" class="btn-amazon">Ver na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🧦</div>
-        <div class="product-info">
-          <div class="product-name">Meia Calça Select Comfort Premium Sigvaris 862AT — 20-30 mmHg</div>
-          <div class="product-tags">
-            <span class="tag blue">Compressão premium</span>
-            <span class="tag green">20-30 mmHg</span>
-            <span class="tag purple">Fechada</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">Versão premium com tecido mais macio e maior durabilidade. A ponta fechada oferece <strong>compressão uniforme até os dedos</strong>, importante para pacientes com edema distal ou lipedema nos pés. Mais confortável para uso prolongado no trabalho.</div>
-      <a href="https://amzn.to/4uvcoK6" target="_blank" class="btn-amazon">Ver na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🧦</div>
-        <div class="product-info">
-          <div class="product-name">Meia Calça Longa Sigvaris G3 — 20-30 mmHg Natural</div>
-          <div class="product-tags">
-            <span class="tag blue">Tamanho grande</span>
-            <span class="tag green">20-30 mmHg</span>
-            <span class="tag pink">Lipedema avançado</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">Modelo para pacientes com <strong>pernas de circunferência maior</strong> — o tamanho G3 garante compressão adequada sem constrição. O lipedema em estágio avançado frequentemente exige tamanhos maiores para obter a compressão terapêutica correta.</div>
-      <a href="https://amzn.to/4wihLxR" target="_blank" class="btn-amazon">Ver na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🥾</div>
-        <div class="product-info">
-          <div class="product-name">Bota Pneumática de Compressão</div>
-          <div class="product-tags">
-            <span class="tag blue">Drenagem mecânica</span>
-            <span class="tag green">Anti-edema</span>
-            <span class="tag pink">Lipedema</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">A bota pneumática realiza <strong>drenagem linfática mecânica</strong> — estimula o sistema linfático com pressão sequencial do pé para a coxa. Excelente para usar em casa após um dia longo, reduz o inchaço e a dor do lipedema. Complementa a drenagem manual feita pelo terapeuta.</div>
-      <a href="https://www.amazon.com.br/s?k=bota+pneumatica+compressao+linfatica" target="_blank" class="btn-amazon">Buscar na Amazon</a>
-    </div>
-  </div>
-
-  <!-- EQUIPAMENTOS / MOVIMENTO -->
-  <div class="category">
-    <div class="cat-header">
-      <div class="cat-icon" style="background:#FFF4EC">🏃</div>
-      <div>
-        <div class="cat-title">Movimento & Terapias</div>
-        <div class="cat-sub">Equipamentos para estimular o linfático e reduzir inflamação</div>
+      <div class="product-footer">
+        <a href="https://www.amazon.com.br/s?k=whey+protein+isolado" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">💡</div>
-        <div class="product-info">
-          <div class="product-name">Tapete de LED (Fotobiomodulação)</div>
-          <div class="product-tags">
-            <span class="tag pink">Anti-inflamatório</span>
-            <span class="tag purple">Reduz dor</span>
-            <span class="tag green">Circulação</span>
-          </div>
-        </div>
+      <div class="product-name">Enzima Gluten</div>
+      <div class="product-tags">
+        <span class="tag g">Anti-inflamatório</span>
+        <span class="tag v">Digestão</span>
       </div>
-      <div class="product-why">A terapia com luz LED (vermelho e infravermelho) tem <strong>evidência científica crescente para lipedema</strong>: reduz a inflamação no tecido adiposo, melhora a microcirculação e diminui a dor. Usar 20 minutos por dia nas pernas pode complementar a drenagem e reduzir a progressão.</div>
-      <a href="https://www.amazon.com.br/s?k=tapete+led+terapia+vermelho+infravermelho" target="_blank" class="btn-amazon">Buscar na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">📳</div>
-        <div class="product-info">
-          <div class="product-name">Plataforma Vibratória</div>
-          <div class="product-tags">
-            <span class="tag blue">Circulação linfática</span>
-            <span class="tag green">Baixo impacto</span>
-            <span class="tag yellow">Tônus muscular</span>
-          </div>
-        </div>
+      <div class="product-why">
+        O glúten pode ser um <strong>gatilho inflamatório silencioso</strong> para mulheres com lipedema, mesmo sem doença celíaca. A enzima digestiva permite consumir alimentos sem desencadear a resposta inflamatória — indico especialmente para eventos sociais e saídas.
       </div>
-      <div class="product-why">A vibração de corpo inteiro estimula <strong>contrações musculares rápidas</strong> que bombeiam o sistema linfático sem impacto nas articulações. Ideal para pacientes com lipedema que têm dificuldade de exercício convencional — 10 minutos equivalem a uma sessão de caminhada leve em termos de ativação linfática.</div>
-      <a href="https://amzn.to/42nW1mI" target="_blank" class="btn-amazon">Ver na Amazon</a>
-      <div class="andressa-note">
-        <div class="av">💬</div>
-        <p>Uso essa plataforma há mais de 1 ano. Coloco de manhã enquanto tomo meu café — fácil de encaixar na rotina.</p>
+      <div class="product-footer">
+        <a href="https://amzn.to/4u022C1" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🚴</div>
-        <div class="product-info">
-          <div class="product-name">Bike Ergométrica — Melhor Custo-Benefício</div>
-          <div class="product-tags">
-            <span class="tag green">Baixo impacto</span>
-            <span class="tag blue">Circulação</span>
-            <span class="tag yellow">Em casa</span>
-          </div>
-        </div>
+      <div class="product-name">Lactase Perlatte</div>
+      <div class="product-tags">
+        <span class="tag g">Anti-inflamatório</span>
+        <span class="tag v">Digestão</span>
+        <span class="tag b">Reduz inchaço</span>
       </div>
-      <div class="product-why">A bike ergométrica é o <strong>exercício mais recomendado para lipedema</strong>: sem impacto nas articulações, estimula a musculatura das pernas que age como bomba para o sistema linfático, e pode ser feito em casa. 30 minutos por dia já fazem diferença real no edema.</div>
-      <a href="https://amzn.to/4cZ3dvx" target="_blank" class="btn-amazon">Ver na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🚴</div>
-        <div class="product-info">
-          <div class="product-name">Bike Ergométrica — Versão Conforto</div>
-          <div class="product-tags">
-            <span class="tag green">Banco largo</span>
-            <span class="tag blue">Maior conforto</span>
-            <span class="tag yellow">Em casa</span>
-          </div>
-        </div>
+      <div class="product-why">
+        A intolerância à lactose é muito comum em mulheres com lipedema e <strong>piora a inflamação e o inchaço</strong> sem que se perceba. Tomada antes de laticínios, evita a fermentação intestinal e a retenção que acompanha esse processo.
       </div>
-      <div class="product-why">Versão com banco mais largo e ergonômico — ideal para pacientes com <strong>lipedema nas coxas e quadril</strong> que sentem desconforto nos bancos tradicionais. Mesmos benefícios linfáticos com muito mais conforto no uso diário.</div>
-      <a href="https://amzn.to/4ttOJsl" target="_blank" class="btn-amazon">Ver na Amazon</a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🦵</div>
-        <div class="product-info">
-          <div class="product-name">Alça de Alongamento de Panturrilha</div>
-          <div class="product-tags">
-            <span class="tag pink">Tendão de aquiles</span>
-            <span class="tag green">Fascite plantar</span>
-            <span class="tag blue">Flexibilidade</span>
-          </div>
-        </div>
-      </div>
-      <div class="product-why">O encurtamento do tendão de aquiles é muito comum em pacientes com lipedema pela <strong>alteração do padrão de marcha</strong> causada pelo volume nas pernas. Esse alongador permite fazer o exercício terapêutico correto sem esforço, em pé ou sentada. Essencial para quem tem fascite plantar associada.</div>
-      <a href="https://amzn.to/4u285WU" target="_blank" class="btn-amazon">Ver na Amazon</a>
-      <div class="andressa-note">
-        <div class="av">💬</div>
-        <p>Ótima para pacientes com problemas no tendão de aquiles e/ou ascite plantar — indico com frequência no consultório.</p>
+      <div class="product-footer">
+        <a href="https://www.amazon.com.br/s?k=lactase+perlatte" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- COZINHA FUNCIONAL -->
+  <!-- ── COMPRESSÃO ── -->
   <div class="category">
-    <div class="cat-header">
-      <div class="cat-icon" style="background:#FFFBEC">🍳</div>
-      <div>
-        <div class="cat-title">Cozinha Funcional</div>
-        <div class="cat-sub">Facilite o preparo de receitas anti-inflamatórias no dia a dia</div>
+    <div class="cat-label">
+      <div class="cat-label-line"></div>
+      <div class="cat-label-text">Compressão</div>
+      <div class="cat-label-line"></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Legging Emana</div>
+      <div class="product-tags">
+        <span class="tag b">Compressão suave</span>
+        <span class="tag g">Uso diário</span>
+        <span class="tag p">Lipedema</span>
+      </div>
+      <div class="product-why">
+        Tecnologia de compressão suave com bioenergia de cristais de jade que estimula a microcirculação. Ideal para o dia a dia — proporciona alívio da sensação de peso e dor nas pernas do lipedema <strong>sem a rigidez das meias medicinais</strong>.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4tVWhoZ" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🌀</div>
-        <div class="product-info">
-          <div class="product-name">Ninja Shark — Liquidificador Portátil</div>
-          <div class="product-tags">
-            <span class="tag green">Smoothies</span>
-            <span class="tag yellow">Anti-inflamatório</span>
-            <span class="tag blue">Prático</span>
-          </div>
-        </div>
+      <div class="product-name">Meia Calça Sigvaris 972 AT — 20-30 mmHg</div>
+      <div class="product-tags">
+        <span class="tag b">Compressão medicinal</span>
+        <span class="tag g">20-30 mmHg</span>
+        <span class="tag p">Lipedema</span>
       </div>
-      <div class="product-why">Para fazer os <strong>smoothies anti-inflamatórios</strong> diários com espinafre, cúrcuma, gengibre e proteína — a praticidade faz toda a diferença na consistência. Esse liquidificador portátil bate frutas congeladas sem esforço e você leva na bolsa.</div>
-      <a href="https://amzn.to/4ni866v" target="_blank" class="btn-amazon">Ver na Amazon</a>
-      <div class="andressa-note">
-        <div class="av">💬</div>
-        <p>Tenho há 3 anos, uso quase todos os dias e nunca estragou. Bate muito bem frutas congeladas — o melhor liquidificador portátil que já tive.</p>
+      <div class="product-why">
+        A compressão 20-30 mmHg é a <strong>faixa terapêutica indicada para lipedema</strong>. A Sigvaris é referência mundial — tecido durável, graduação precisa da pressão do tornozelo à coxa que favorece o retorno linfático. Modelo básico, ótimo custo-benefício.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/3RfxWfj" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
       </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🥚</div>
-        <div class="product-info">
-          <div class="product-name">Cozedor de Ovos Elétrico</div>
-          <div class="product-tags">
-            <span class="tag yellow">Proteína fácil</span>
-            <span class="tag green">Prático</span>
-          </div>
-        </div>
+      <div class="product-name">Meia Calça Sigvaris Select Comfort 862AT — Premium</div>
+      <div class="product-tags">
+        <span class="tag b">Compressão premium</span>
+        <span class="tag g">20-30 mmHg</span>
+        <span class="tag v">Ponta fechada</span>
       </div>
-      <div class="product-why">O ovo é a <strong>fonte de proteína mais completa e acessível</strong> para o protocolo anti-inflamatório. O cozedor elétrico remove a desculpa de "demorou demais" — em 10 minutos você tem 7 ovos perfeitos sem precisar vigiar o fogão. Praticidade que mantém a consistência.</div>
-      <a href="https://amzn.to/4u0X2gF" target="_blank" class="btn-amazon">Ver na Amazon</a>
+      <div class="product-why">
+        Tecido mais macio e maior durabilidade. A ponta fechada oferece <strong>compressão uniforme até os dedos</strong> — importante para quem tem edema distal ou lipedema nos pés. Mais confortável para uso prolongado no trabalho.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4uvcoK6" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🍲</div>
-        <div class="product-info">
-          <div class="product-name">Panela de Pressão Elétrica</div>
-          <div class="product-tags">
-            <span class="tag green">Prático</span>
-            <span class="tag yellow">Cozimento saudável</span>
-          </div>
-        </div>
+      <div class="product-name">Meia Calça Sigvaris G3 — Tamanho Grande</div>
+      <div class="product-tags">
+        <span class="tag b">Tamanho G3</span>
+        <span class="tag g">20-30 mmHg</span>
+        <span class="tag p">Lipedema avançado</span>
       </div>
-      <div class="product-why">Facilita o preparo de carnes, legumes e caldos em pouco tempo — <strong>sem precisar usar óleo em excesso</strong>. A panela elétrica permite programar o cozimento e deixar pronto sem ficar na cozinha, ideal para quem tem rotina corrida e precisa manter a alimentação anti-inflamatória.</div>
-      <a href="https://amzn.to/4ni866v" target="_blank" class="btn-amazon">Ver na Amazon</a>
+      <div class="product-why">
+        Para pacientes com <strong>pernas de circunferência maior</strong> — o tamanho G3 garante compressão adequada sem constrição. O lipedema em estágio avançado frequentemente exige tamanhos maiores para obter a pressão terapêutica correta.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4wihLxR" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🫕</div>
-        <div class="product-info">
-          <div class="product-name">Caçarola de Cerâmica Antiaderente 26cm</div>
-          <div class="product-tags">
-            <span class="tag green">Sem toxinas</span>
-            <span class="tag pink">Anti-inflamatório</span>
-            <span class="tag blue">Indução/gás</span>
-          </div>
-        </div>
+      <div class="product-name">Bota Pneumática de Compressão</div>
+      <div class="product-tags">
+        <span class="tag b">Drenagem mecânica</span>
+        <span class="tag g">Anti-edema</span>
+        <span class="tag p">Lipedema</span>
       </div>
-      <div class="product-why">O teflon convencional libera compostos PFAS quando aquecido — <strong>disruptores endócrinos que pioram a inflamação sistêmica</strong>. A cerâmica é a alternativa mais segura para cozinhar sem aderir e sem toxinas. Compatível com fogão a gás, indução e vitrocerâmico.</div>
-      <a href="https://amzn.to/4uImUxL" target="_blank" class="btn-amazon">Ver na Amazon</a>
+      <div class="product-why">
+        Realiza <strong>drenagem linfática mecânica</strong> com pressão sequencial do pé à coxa — estimula o sistema linfático em casa após um dia longo. Reduz inchaço e dor do lipedema e complementa a drenagem manual feita pelo terapeuta.
+      </div>
+      <div class="product-footer">
+        <a href="https://www.amazon.com.br/s?k=bota+pneumatica+compressao+linfatica" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MOVIMENTO ── -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-label-line"></div>
+      <div class="cat-label-text">Movimento & Terapias</div>
+      <div class="cat-label-line"></div>
     </div>
 
     <div class="product-card">
-      <div class="product-top">
-        <div class="product-emoji">🍳</div>
-        <div class="product-info">
-          <div class="product-name">Conjunto de Panelas Ceraflame Cerâmica — 5 Peças</div>
-          <div class="product-tags">
-            <span class="tag green">Sem teflon</span>
-            <span class="tag pink">Anti-inflamatório</span>
-            <span class="tag yellow">Kit completo</span>
-          </div>
-        </div>
+      <div class="product-name">Tapete de LED — Fotobiomodulação</div>
+      <div class="product-tags">
+        <span class="tag p">Anti-inflamatório</span>
+        <span class="tag v">Reduz dor</span>
+        <span class="tag g">Microcirculação</span>
       </div>
-      <div class="product-why">Kit completo para transformar a cozinha em um ambiente <strong>100% livre de toxinas</strong>. A Ceraflame é referência nacional em panelas cerâmicas de qualidade — duráveis, bonitas e seguras. Para quem quer fazer a transição completa do teflon para cerâmica de uma vez.</div>
-      <a href="https://amzn.to/4njHthu" target="_blank" class="btn-amazon">Ver na Amazon</a>
+      <div class="product-why">
+        A terapia com luz LED (vermelho e infravermelho) tem <strong>evidência crescente para lipedema</strong>: reduz a inflamação no tecido adiposo, melhora a microcirculação e diminui a dor. 20 minutos por dia nas pernas complementam a drenagem e reduzem a progressão.
+      </div>
+      <div class="product-footer">
+        <a href="https://www.amazon.com.br/s?k=tapete+led+terapia+vermelho+infravermelho" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Plataforma Vibratória</div>
+      <div class="product-tags">
+        <span class="tag b">Circulação linfática</span>
+        <span class="tag g">Baixo impacto</span>
+        <span class="tag y">Tônus muscular</span>
+      </div>
+      <div class="product-why">
+        A vibração de corpo inteiro estimula <strong>contrações musculares rápidas que bombeiam o sistema linfático</strong> sem impacto nas articulações. 10 minutos equivalem a uma sessão de caminhada leve em termos de ativação linfática — ideal para quem tem dificuldade com exercício convencional.
+      </div>
+      <div class="product-footer">
+        <span class="andressa-note">Uso essa plataforma há mais de 1 ano — coloco de manhã enquanto tomo café.</span>
+        <a href="https://amzn.to/42nW1mI" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Bike Ergométrica — Custo-Benefício</div>
+      <div class="product-tags">
+        <span class="tag g">Baixo impacto</span>
+        <span class="tag b">Circulação</span>
+        <span class="tag y">Em casa</span>
+      </div>
+      <div class="product-why">
+        O <strong>exercício mais recomendado para lipedema</strong>: sem impacto nas articulações, estimula a musculatura das pernas — que age como bomba para o sistema linfático. 30 minutos por dia fazem diferença real no edema e na inflamação.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4cZ3dvx" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Bike Ergométrica — Versão Conforto</div>
+      <div class="product-tags">
+        <span class="tag g">Banco largo</span>
+        <span class="tag b">Maior conforto</span>
+        <span class="tag y">Em casa</span>
+      </div>
+      <div class="product-why">
+        Banco mais largo e ergonômico — ideal para pacientes com <strong>lipedema nas coxas e quadril</strong> que sentem desconforto nos modelos tradicionais. Mesmos benefícios linfáticos com muito mais conforto no uso diário.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4ttOJsl" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Alça de Alongamento de Panturrilha</div>
+      <div class="product-tags">
+        <span class="tag p">Tendão de aquiles</span>
+        <span class="tag g">Fascite plantar</span>
+        <span class="tag b">Flexibilidade</span>
+      </div>
+      <div class="product-why">
+        O encurtamento do tendão de aquiles é muito comum em lipedema pela <strong>alteração do padrão de marcha</strong> causada pelo volume nas pernas. Esse alongador permite fazer o exercício terapêutico correto em pé ou sentada, sem esforço.
+      </div>
+      <div class="product-footer">
+        <span class="andressa-note">Indico com frequência para pacientes com problemas no tendão de aquiles.</span>
+        <a href="https://amzn.to/4u285WU" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COZINHA ── -->
+  <div class="category">
+    <div class="cat-label">
+      <div class="cat-label-line"></div>
+      <div class="cat-label-text">Cozinha Funcional</div>
+      <div class="cat-label-line"></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Ninja Shark — Liquidificador Portátil</div>
+      <div class="product-tags">
+        <span class="tag g">Smoothies</span>
+        <span class="tag y">Anti-inflamatório</span>
+        <span class="tag b">Prático</span>
+      </div>
+      <div class="product-why">
+        Para os <strong>smoothies anti-inflamatórios</strong> diários com espinafre, cúrcuma, gengibre e proteína — a praticidade faz toda a diferença na consistência. Bate frutas congeladas sem esforço e você leva na bolsa.
+      </div>
+      <div class="product-footer">
+        <span class="andressa-note">Tenho há 3 anos, uso quase todos os dias — o melhor que já tive.</span>
+        <a href="https://amzn.to/4ni866v" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Cozedor de Ovos Elétrico</div>
+      <div class="product-tags">
+        <span class="tag y">Proteína fácil</span>
+        <span class="tag g">Prático</span>
+      </div>
+      <div class="product-why">
+        O ovo é a <strong>fonte de proteína mais completa e acessível</strong> para o protocolo anti-inflamatório. Em 10 minutos você tem 7 ovos perfeitos sem precisar vigiar o fogão. Praticidade que mantém a consistência.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4u0X2gF" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Panela de Pressão Elétrica</div>
+      <div class="product-tags">
+        <span class="tag g">Prático</span>
+        <span class="tag y">Cozimento saudável</span>
+      </div>
+      <div class="product-why">
+        Facilita o preparo de carnes, legumes e caldos em pouco tempo, <strong>sem precisar usar óleo em excesso</strong>. Ideal para quem tem rotina corrida e precisa manter a alimentação anti-inflamatória sem ficar na cozinha.
+      </div>
+      <div class="product-footer">
+        <a href="https://www.amazon.com.br/s?k=panela+pressao+eletrica" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Caçarola de Cerâmica Antiaderente 26cm</div>
+      <div class="product-tags">
+        <span class="tag g">Sem toxinas</span>
+        <span class="tag p">Anti-inflamatório</span>
+        <span class="tag b">Indução/gás</span>
+      </div>
+      <div class="product-why">
+        O teflon convencional libera compostos PFAS ao aquecer — <strong>disruptores endócrinos que pioram a inflamação sistêmica</strong>. A cerâmica é a alternativa mais segura para cozinhar sem aderir e sem toxinas. Compatível com gás, indução e vitrocerâmico.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4uImUxL" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Conjunto Ceraflame Cerâmica — 5 Peças</div>
+      <div class="product-tags">
+        <span class="tag g">Sem teflon</span>
+        <span class="tag p">Anti-inflamatório</span>
+        <span class="tag y">Kit completo</span>
+      </div>
+      <div class="product-why">
+        Kit para transformar a cozinha em um ambiente <strong>100% livre de toxinas</strong>. A Ceraflame é referência nacional em panelas cerâmicas — duráveis, bonitas e seguras. Para quem quer fazer a transição completa do teflon de uma vez.
+      </div>
+      <div class="product-footer">
+        <a href="https://amzn.to/4njHthu" target="_blank" class="btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver na Amazon
+        </a>
+      </div>
     </div>
   </div>
 
 </main>
 
 <footer>
-  <strong>Andressa Bertoli</strong> · Nutricionista CRN 810635<br/>
-  <a href="https://wa.me/5542998048864">📲 (42) 99804-8864</a> · <a href="https://instagram.com/lipedemanutricionista">@lipedemanutricionista</a><br/><br/>
-  <span style="font-size:11px">Links Amazon podem ser afiliados. O preço final não é alterado para o consumidor.</span>
+  <p>
+    <strong>Andressa Bertoli</strong> · Nutricionista CRN 810635<br/>
+    <a href="https://wa.me/5542998048864">📲 (42) 99804-8864</a> &nbsp;·&nbsp;
+    <a href="https://instagram.com/lipedemanutricionista">@lipedemanutricionista</a>
+  </p>
 </footer>
 
 </body>
